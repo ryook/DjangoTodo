@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myTodo</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+</head>
+<body>
+    <header> <h1>myTodo</h1></header>
+    <table>
+        {% for task in tasks %}
+            <tr>
+                <td><h1>{{ task.name }}</h1></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
