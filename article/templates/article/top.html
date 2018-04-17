@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Nikkei</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+</head>
+<body>
+    <header><h1>SimpleNikkei</h1></header>
+    <main class="col-sm-6">
+        {% for article in articles %}
+            <p>
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.body | truncatechars:10 }}</p>
+            </div>
+        {% endfor %}
+    </main>
+</body>
+</html>
