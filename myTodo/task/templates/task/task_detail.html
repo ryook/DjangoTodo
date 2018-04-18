@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <from method="post" enctype="multipart/form-data">
+            {% for field in form %}
+
+                <div class="form-group">
+                    <label class="control-label" for="{{ field.name }}">{{ field.name }}</label>
+                    <input type="{{ field.type }}" class="form-control"
+                           name="{{ field.id }}"
+                           id="{{ field.name }}"
+                            value="{{ field.value }}">
+                    {{ field.message }}
+                </div>
+            {% endfor %}
+            <input type="submit" value="save" class="btn btn-primary">
+        </from>
+    </div>
+{% endblock %}

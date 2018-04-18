@@ -9,16 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 </head>
 <body>
-    <header> <h1>myTodo</h1></header>
+    <header><h1>myTodo</h1></header>
     <table>
-        {% for task in tasks %}
-            <tr>
-                <td>
-                    <a href="{% url 'task:detail' 1 %}"><h2>{{ task.name }}</h2></a>
-                </td>
-            </tr>
-        {% endfor %}
+        {% block content %}{% endblock %}
     </table>
-
 </body>
 </html>
