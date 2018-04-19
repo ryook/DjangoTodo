@@ -14,6 +14,7 @@ def task_detail(request, task_id):
     if request.method == 'POST':
         form = TaskForm(data=request.POST, instance=task)
         if form.is_valid():
+            form.save()
             return redirect('task:list')
     else:
         form = TaskForm(instance=task)
