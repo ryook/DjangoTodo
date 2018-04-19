@@ -1,4 +1,27 @@
 
-table {
-    color: red;
+html, body {
+    width: 100%;
+    height: 100%;
 }
+
+h1 {
+    padding: 10px;
+}
+
+.main{
+    width: 80%;
+    margin: auto;
+}
+
+.main button{
+    margin-bottom: 20px;
+}
+
+.main input{
+    margin-top: 20px;
+}
+
+.new-btn {
+    float: right;
+}
+

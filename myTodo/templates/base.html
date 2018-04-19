@@ -9,9 +9,16 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 </head>
 <body>
-    <header><h1>myTodo</h1></header>
-    <table>
+    <header>
+        <h1>myTodo</h1>
+    </header>
+
+
+
+    <div class="main">
+
         {% block content %}{% endblock %}
-    </table>
+    </div>
+
 </body>
 </html>

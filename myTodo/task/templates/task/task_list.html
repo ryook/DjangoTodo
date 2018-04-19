@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<table>
-    {% for task in tasks %}
-        <tr>
-            <td>
-                <a href="{% url 'task:detail' task.id %}"><h2>{{ task.name }}</h2></a>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
+    <button class="btn btn-default new-btn"><a href="{% url 'task:new' %}">新規作成</a></button>
+    <table class="table">
+        {% for task in tasks %}
+            <tr>
+                <td>
+                    <a href="{% url 'task:detail' task.id %}"><h2>{{ task.name }}</h2></a>
+                </td>
+                <td>
+                    <form action="{% url 'task:delete' task.id%}" method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-danger" type="submit" value="削除">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
