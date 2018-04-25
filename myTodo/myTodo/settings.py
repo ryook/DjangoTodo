@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task',
     'rest_framework',
-    'api'
+    'api',
+    'frontends',
+    'webpack_loader'
 ]
 
 MIDDLEWARE = [
@@ -117,11 +119,23 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images) for template
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 
+
+# settings for webpack
+SPA_FRONT_DIR = os.path.join(BASE_DIR, 'frontends')
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
+    os.path.join(SPA_FRONT_DIR, 'assets')
 )
+
+WEBPACK_LOADER = {
+  'DEFAULT': {
+    'BUNDLE_DIR_NAME': 'webpack_bundles/',
+    'STATS_FILE': os.path.join(SPA_FRONT_DIR, 'webpack-stats-js.json')
+  }
+}

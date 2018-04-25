@@ -2,3 +2,7 @@ env/
 .idea/
 *.pyc
 .DS_Store
+
+node_modules/
+myTodo/frontends/assets/webpack_bundles/
+webpack-stats-js.json
