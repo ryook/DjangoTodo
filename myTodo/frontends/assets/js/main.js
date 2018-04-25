@@ -32,24 +32,43 @@ class App extends React.Component {
         const name = e.target.name.value;
         const todos = this.state.todos.slice();
 
-        todos.push({
-            id: todos.length + 1,
-            name: name
-        });
-
-        this.setState({ todos });
+        fetch('/api/task/', {
+            method: 'POST',
+            body: JSON.stringify({'name': name}),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(res => {
+            if(res.ok){
+                return res.json()
+            };
+        }).then(data => {
+            todos.push({
+                id: data.id,
+                name: name
+            });
+            this.setState({ todos });
+        })
+        .catch(error => console.log(error));
         e.target.name.value = '';
     };
 
     deleteTask(id) {
         const todos = this.state.todos.slice();
-        todos.some((v, i) => {
-            if(v.id==id){
-                todos.splice(i, 1);
-            }
+
+        fetch('/api/task/' + id + '/', {
+            method: 'delete'
+        }).then(res => {
+            if(res.ok){
+               todos.some((v, i) => {
+                if(v.id==id){
+                            todos.splice(i, 1);
+                        }
+                    });
+                this.setState({ todos });
+            };
         });
-        this.setState({ todos });
-    }
+    };
 
   render() {
     return (
