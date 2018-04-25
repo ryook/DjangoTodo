@@ -4,10 +4,11 @@ export class TaskComponent extends React.Component {
 
     render() {
         return(
-            <tr className="task">
-                <td>{this.props.name}</td>
-                <td><a href="">完了</a></td>
+            <tr className="task" key={this.props.id}>
+                    <td>{this.props.name}</td>
+                    <td><button onClick={(e) => this.props.deleteTask(this.props.id)}>完了</button></td>
             </tr>
+
         )
     }
 }
