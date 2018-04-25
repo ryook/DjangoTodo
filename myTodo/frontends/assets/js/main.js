@@ -9,17 +9,22 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            todos: [
-                {
-                    id: 1,
-                    name: "react"
-                },
-                {
-                    id: 2,
-                    name: "django"
-                }
-            ]
+            todos: []
         }
+    }
+
+    fetchTask(){
+        fetch('/api/task/')
+            .then(res => res.json())
+            .then(data => {
+                this.state.todos = data
+                this.setState({todos: this.state.todos})
+            })
+            .catch(error => console.log(error));
+    };
+
+    componentDidMount() {
+        this.fetchTask();
     }
 
     addTask(e){
