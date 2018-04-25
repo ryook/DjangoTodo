@@ -1,5 +1,17 @@
-// import 文を使って sub.js ファイルを読み込む。
-import {hello} from './sub';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-// sub.jsに定義されたJavaScriptを実行する。
-hello();
+import {SubComponent} from './sub-component';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello React!</h1>
+        <SubComponent name="My Counter for Babel" />
+      </div>
+    );
+  }
+}
+console.log('ようこそ');
+ReactDOM.render(<App/>, document.querySelector('#app'));
