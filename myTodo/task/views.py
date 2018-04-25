@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm
 
+
 def task_list(request):
     tasks = Task.objects.all().order_by('created_at')
     return render(request, 'task/task_list.html', {'tasks': tasks})
@@ -31,7 +32,7 @@ def task_new(request):
         form = TaskForm(request.POST)
         form.is_valid()
         form.save()
-        return  redirect('task:list')
+        return redirect('task:list')
 
 
 def task_delete(request, task_id):
