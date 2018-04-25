@@ -13,5 +13,8 @@
   "devDependencies": {
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15"
+  },
+  "dependencies": {
+    "webpack-bundle-tracker": "^0.3.0"
   }
 }
