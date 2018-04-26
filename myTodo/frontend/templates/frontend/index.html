@@ -1,10 +1,15 @@
+{% load render_bundle from webpack_loader %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static 'css/spa.css' %}" type="text/css" />
 </head>
 <body>
-hello world
+<div id="app"></div>
 </body>
+{% render_bundle 'main' 'js' %}
 </html>
